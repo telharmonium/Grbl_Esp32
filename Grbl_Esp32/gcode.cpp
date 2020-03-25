@@ -295,7 +295,7 @@ uint8_t gc_execute_line(char* line, uint8_t client) {
             case 3:
             case 4:
             case 5:
-#ifndef SPINDLE_PWM_PIN
+#if ((! defined SPINDLE_DIR_PIN) && (!defined USE_HY_VFD_SPINDLE))
                 grbl_msg_sendf(CLIENT_SERIAL, MSG_LEVEL_INFO, "No spindle pin defined");
 #endif
                 word_bit = MODAL_GROUP_M7;
@@ -304,7 +304,7 @@ uint8_t gc_execute_line(char* line, uint8_t client) {
                     gc_block.modal.spindle = SPINDLE_ENABLE_CW;
                     break;
                 case 4: // Supported if SPINDLE_DIR_PIN is defined or laser mode is on.
-#ifndef SPINDLE_DIR_PIN
+#if ((! defined SPINDLE_DIR_PIN) && (!defined USE_HY_VFD_SPINDLE))
                     // if laser mode is not on then this is an unsupported command
                     if bit_isfalse(settings.flags, BITFLAG_LASER_MODE) {
                         FAIL(STATUS_GCODE_UNSUPPORTED_COMMAND);

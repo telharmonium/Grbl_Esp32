@@ -62,6 +62,9 @@ void spindle_init() {
     // Start with spindle off off
     spindle_stop();
 #endif
+#ifdef USE_HY_VFD_SPINDLE
+    hy_vfd_spindle_init();
+#endif
 }
 
 void spindle_stop() {
@@ -166,6 +169,9 @@ void spindle_set_state(uint8_t state, float rpm) {
         spindle_set_speed(spindle_compute_pwm_value(rpm));
     }
     sys.report_ovr_counter = 0; // Set to report change immediately
+#endif
+#ifdef USE_HY_VFD_SPINDLE
+    hy_vfd_spindle_set_state(state, rpm);
 #endif
 }
 

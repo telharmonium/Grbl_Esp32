@@ -91,6 +91,10 @@
     #include "grbl_unipolar.h"
 #endif
 
+#ifdef USE_HY_VFD_SPINDLE
+    #include "hy_vfd_spindle.h"
+#endif
+
 // Called if USE_MACHINE_INIT is defined
 void machine_init();
 

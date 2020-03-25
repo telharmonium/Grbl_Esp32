@@ -1,5 +1,5 @@
 /*
-    external_driver_4x.h
+    4axis_external_driver.h
     Part of Grbl_ESP32
 
     Pin assignments for the buildlog.net 4-axis external driver board
@@ -40,12 +40,15 @@
 #define STEPPERS_DISABLE_PIN    GPIO_NUM_13
 
 
-#define SPINDLE_PWM_PIN         GPIO_NUM_25
-#define SPINDLE_ENABLE_PIN      GPIO_NUM_22
 
-#define MODBUS_TX               GPIO_NUM_17
-#define MODBUS_RX               GPIO_NUM_4
-#define MODBUS_CTRL             GPIO_NUM_16
+//#define SPINDLE_PWM_PIN         GPIO_NUM_25
+//#define SPINDLE_ENABLE_PIN      GPIO_NUM_22
+
+
+#define USE_HY_VFD_SPINDLE // enable the modbus spindle code
+#define HY_VFD_SPINDLE_TXD         GPIO_NUM_23
+#define HY_VFD_SPINDLE_RXD         GPIO_NUM_22
+#define HY_VFD_SPINDLE_RTS         GPIO_NUM_18
 
 #define X_LIMIT_PIN             GPIO_NUM_34
 #define Y_LIMIT_PIN             GPIO_NUM_35
