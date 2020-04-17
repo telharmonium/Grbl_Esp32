@@ -46,9 +46,9 @@
 
 
 #define USE_HY_VFD_SPINDLE // enable the modbus spindle code
-#define HY_VFD_SPINDLE_TXD         GPIO_NUM_23
-#define HY_VFD_SPINDLE_RXD         GPIO_NUM_22
-#define HY_VFD_SPINDLE_RTS         GPIO_NUM_18
+#define HY_VFD_SPINDLE_TXD         GPIO_NUM_17
+#define HY_VFD_SPINDLE_RXD         GPIO_NUM_4
+#define HY_VFD_SPINDLE_RTS         GPIO_NUM_16
 
 #define X_LIMIT_PIN             GPIO_NUM_34
 #define Y_LIMIT_PIN             GPIO_NUM_35

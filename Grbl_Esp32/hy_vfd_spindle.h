@@ -29,7 +29,7 @@
 #define MODBUS_CMD_BYTE     1
 #define MODBUS_LEN_BYTE     2
 
-#define HY_VFD_SPINDLE_RESPONSE_WAIT_TICKS 20 // how long to wait for a response
+#define HY_VFD_SPINDLE_RESPONSE_WAIT_TICKS 80 // how long to wait for a response
 
 #define HY_VFD_SPINDLE_BUF_SIZE    127
 
@@ -42,7 +42,8 @@
 void hy_vfd_spindle_init();
 void hy_vfd_spindle_set_speed(float rpm);
 void hy_vfd_spindle_set_state(uint8_t state, float rpm);
-uint16_t ModRTU_CRC(byte* buf, int len);
-uint16_t hy_vfd_spindle_get_response(uint16_t length);
+uint16_t ModRTU_CRC(char* buf, int len);
+bool hy_vfd_spindle_get_response(uint16_t length);
+uint32_t hy_vfd_spindle_report_speed();
 
 #endif
