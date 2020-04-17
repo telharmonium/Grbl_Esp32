@@ -54,14 +54,10 @@
 const uart_port_t hy_vfd_spindle_uart_num = HY_VFD_SPINDLE_UART_PORT;
 uint8_t hy_vfd_spindle_rx_message[50]; // received from vfd
 
-void hy_vfd_spindle_init() {
-
-    /*
-    // to allow this function to be run again, uninstall uart is it was already installed.
-    if (uart_is_driver_installed(hy_vfd_spindle_uart_num)) { 
-        uart_driver_delete(hy_vfd_spindle_uart_num);
-    }
-    */
+void hy_vfd_spindle_init() {   
+   
+    // this allows us to init() more than once if settings have changed.
+    uart_driver_delete(hy_vfd_spindle_uart_num);
 
     uart_config_t uart_config = {
         .baud_rate = HY_VFD_SPINDLE_BAUD_RATE,
